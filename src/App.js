@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+// change the  API password to git ignore
+
+// Libraries
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+
+// Context
+import {WeatherInfoProvider} from './context/WeatherInfoContext';
+
+// Layouts
+import MainLayout from './Layouts/MainLayout';
+
+// Views
+import Home from "./Views/Home/Home";
+import WeatherInformation from './Views/WeatherInformation/WeatherInformation';
+import NotFound from './Views/NotFound/NotFound';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <WeatherInfoProvider>
+            <Router>
+                <MainLayout>
+                    <Switch>
+                        <Route path="/" exact>
+                            <Home/>
+                        </Route>
+
+                        <Route path="/weather/:name" exact>
+                            <WeatherInformation/>
+                        </Route>
+
+                        <Route path="*" exact>
+                            <NotFound/>
+                        </Route>
+                    </Switch>
+                </MainLayout>
+            </Router>
+        </WeatherInfoProvider>
+    );
 }
 
 export default App;
