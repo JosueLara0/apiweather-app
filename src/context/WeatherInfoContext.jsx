@@ -1,25 +1,23 @@
 // Libraries
-import React, {createContext, useState} from "react";
+import React, { createContext, useState } from "react";
 
 // Context with the API weather info
 const WeatherInfoContext = createContext();
 
 // Provider
-const WeatherInfoProvider = ({children}) => {
+const WeatherInfoProvider = ({ children }) => {
+  // States
+  const [cityInformation, setCityInformation] = useState(null);
 
-    // States
-    const [cityInformation, setCityInformation] = useState(null);
+  // Context States
+  const data = { cityInformation, setCityInformation };
 
-    // Context States
-    const data = {cityInformation, setCityInformation};
-
-
-    return (
-        <WeatherInfoContext.Provider value={data}>
-            {children}
-        </WeatherInfoContext.Provider>
-    );
+  return (
+    <WeatherInfoContext.Provider value={data}>
+      {children}
+    </WeatherInfoContext.Provider>
+  );
 };
 
-export {WeatherInfoProvider};
+export { WeatherInfoProvider };
 export default WeatherInfoContext;
