@@ -35,5 +35,5 @@ Mobile version:
 2. Install modules `npm install`.
 3. Make an account and get an api key in [Open weather api](https://openweathermap.org/).
 4. Check .env.example file and create a `.env` file. 
-3. Setting up Tailwind CSS (check documentation link).
-4. Run project `npm start`.
+5. Setting up Tailwind CSS check [documentation link](https://tailwindcss.com/docs/guides/create-react-app).
+6. Run project `npm start`.
